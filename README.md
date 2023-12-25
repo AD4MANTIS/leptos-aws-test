@@ -24,7 +24,7 @@ cargo generate --git https://github.com/leptos-rs/start-aws.git
 to generate a new project template.
 
 ```bash
-cd {{project-name}}
+cd ad4-leptos-aws-test
 ```
 
 to go to your newly created project.
@@ -90,17 +90,17 @@ you'll have to manage the WASM build and optimization yourself.
 Next, let's build the production server binary:
 
 ```bash
-LEPTOS_OUTPUT_NAME={{project-name}} cargo lambda build --no-default-features --features=ssr --release
+LEPTOS_OUTPUT_NAME=ad4-leptos-aws-test cargo lambda build --no-default-features --features=ssr --release
 ```
 
-This should produce a binary at `target/lambda/{{project-name}}/bootstrap`.
+This should produce a binary at `target/lambda/ad4-leptos-aws-test/bootstrap`.
 `Cargo.toml` exposes all the required environment variables to `cargo-lambda`
 so that the server can run in production.
 
 Finally, we can deploy the project to AWS:
 
 ```bash
-cargo lambda deploy --include target/site --enable-function-url
+cargo lambda deploy --lambda-dir target/lambda --enable-function-url --profile ad4mantis
 ```
 
 After a few seconds, `cargo-lambda` should print out the URL of your deployed function!

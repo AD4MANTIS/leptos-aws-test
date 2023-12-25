@@ -1,10 +1,10 @@
 #[cfg(feature = "ssr")]
 #[tokio::main]
 async fn main() {
+    use ad4_leptos_aws_test::{app::*, fileserv::file_and_error_handler};
     use axum::{routing::post, Router};
     use leptos::*;
     use leptos_axum::{generate_route_list, LeptosRoutes};
-    use {{project-name}}::{app::*, fileserv::file_and_error_handler};
 
     simple_logger::init_with_level(log::Level::Debug).expect("couldn't initialize logging");
 
